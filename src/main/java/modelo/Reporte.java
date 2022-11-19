@@ -3,7 +3,7 @@ package modelo;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
-public class Reporte extends Tansaccion{
+public class Reporte {
 
     private float sumaTotalVenta;
     private  float ventaMaxima;
@@ -16,13 +16,10 @@ public class Reporte extends Tansaccion{
     private  float alquilerPromedio;
 
     private  String nombre;
+
     private List<Tansaccion> transacciones;
 
-    public Reporte ( String nombre, String numIdentificacion, String numTelefono, String correo, String contraseña,
-                     int venta, int alquiler, float ventaMaxima,float ventaMinima, float ventaPromedio,
-                     float sumaTotalVenta, float alquilerMaxima,float alquilerMinima, float alquilerPromedio, float sumaTotalAlquiler){
-
-        super(nombre, numIdentificacion, numTelefono, correo, contraseña, venta, alquiler);
+    public Reporte (List<Tansaccion> transacciones ){
 
         this.sumaTotalVenta=sumaTotalVenta;
         this.sumaTotalAlquiler=sumaTotalAlquiler;
@@ -34,11 +31,11 @@ public class Reporte extends Tansaccion{
         this.ventaPromedio=ventaPromedio;
 
     }
-    public float ReporteVenta( String nombre,List<Tansaccion> transacciones){
+    public void ReporteVenta( String nombre,List<Tansaccion> transacciones){
 
         DoubleSummaryStatistics summaryStatistics = transacciones.stream()
 
-                .mapToDouble(Tansaccion::getVenta).summaryStatistics();
+                .mapToDouble(Tansaccion::getValor).summaryStatistics();
 
 
         ventaMaxima = (float) summaryStatistics.getMax();
@@ -53,14 +50,11 @@ public class Reporte extends Tansaccion{
     }
 
 
-
-
-
-    public Void ReporteAlquiler(String nombre, List<Tansaccion> transacciones) {
+    public void ReporteAlquiler(String nombre, List<Tansaccion> transacciones) {
 
         DoubleSummaryStatistics summaryStatistics = transacciones.stream()
 
-                .mapToDouble(Tansaccion::getAlquiler).summaryStatistics();
+                .mapToDouble(Tansaccion::getValor).summaryStatistics();
         sumaTotalAlquiler = (float) summaryStatistics.getSum();
 
         alquilerMaxima = (float) summaryStatistics.getMax();
@@ -68,7 +62,6 @@ public class Reporte extends Tansaccion{
         alquilerMinima = (float) summaryStatistics.getMin();
 
         alquilerPromedio = (float) summaryStatistics.getAverage();
-
 
     }
 

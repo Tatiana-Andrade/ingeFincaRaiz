@@ -1,16 +1,15 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Propietario extends Persona{
 
     private List<Propiedad> propiedades;
-    private List<Persona> personas;
-
     public Propietario(String nombre, String numIdentificacion, String numTelefono, String correo) {
 
         super( nombre, numIdentificacion, numTelefono, correo);
-        this.propiedades = propiedades;
+        this.propiedades = new ArrayList<>();
 
     }
 
@@ -18,7 +17,4 @@ public class Propietario extends Persona{
         return propiedades;
     }
 
-    public List<Persona> getPersonas() {
-        return personas;
-    }
 }

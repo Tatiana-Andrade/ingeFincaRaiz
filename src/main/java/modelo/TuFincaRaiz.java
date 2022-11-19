@@ -1,30 +1,25 @@
 package modelo;
 
 
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class TuFincaRaiz {
 
     public List<Usuario> usuarios;
-    public List<Empleado> empleados;
     public List<Propiedad> propiedades;
     public List<Propietario> propietarios;
     public List<Cliente> clientes;
     public List<Tansaccion> transacciones;
+    public List<Empleado> empleados;
 
 
-    public List<TipoTransaccion> tipoTransacciones;
 
+    public TuFincaRaiz() {
 
-    public TuFincaRaiz(List<Empleado> empleados, List<Propiedad> propiedades,
-                       List<Cliente> clientes, List<Tansaccion> transacciones) {
-
-        this.empleados = empleados;
-        this.propiedades = propiedades;
-        this.clientes = clientes;
-        this.transacciones = transacciones;
+        this.empleados = new ArrayList<>();
+        this.propiedades =new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.transacciones = new ArrayList<>();
     }
     //Aqui vamos aregistrar al Emplado
     public void registrarEmpleado( String nombre, String numIdentificacion, String numTelefono,
@@ -35,14 +30,17 @@ public class TuFincaRaiz {
         Objects.requireNonNull(correo,"");
         Objects.requireNonNull(cargo, "");
 
-         empleados.add(new Empleado(nombre, numIdentificacion, numTelefono, correo, contraseña));
+         usuarios.add(new Empleado(nombre, numIdentificacion, numTelefono, correo, contraseña));
     }
     //  //Aqui vamos BUSCAR al Emplado
     public Empleado buscarEmpleados ( String numIdentificacion){
 
         Objects.requireNonNull(numIdentificacion,"");
 
-        return empleados.stream()
+        return usuarios.stream()
+                // Filtrar solo empleados
+
+                .map(e->(Empleado)e)
                 .filter((empleado)-> empleado.getNumIdentificacion().equals(numIdentificacion)
                 )
                 .findFirst()
@@ -95,11 +93,11 @@ public class TuFincaRaiz {
                 .orElse(null);
 
     }
-    public void registrarPropiedad ( String direccion, String area){
+    public void registrarPropiedad ( String direccion, String area, Ubicacion ubicaciones){
         Objects.requireNonNull(direccion, " la dirreccion no puede estra vacia");
         Objects.requireNonNull(area, "el area no puede eestar vacia");
 
-        propiedades.add(new Propiedad(direccion,area));
+        propiedades.add(new Propiedad(direccion,area, ubicaciones));
 
     }
     public Propiedad buscarPropiedad (String direccion){
@@ -112,15 +110,16 @@ public class TuFincaRaiz {
                 .findFirst()
                 .orElse(null);
     }
-    public void registrarTransaccion(String nombre, String numIdentificacion, String numTelefono,
-                                     String correo, String contraseña, int venta, int alaquiler ) {
+    public void registrarTransaccion(int valor, Date fecha, TipoTransaccion tipoTransacciones, Empleado empleado, Propiedad propiedad,
+                                     Cliente cliente, Propietario propietario) {
 
-        transacciones.add(new Tansaccion(nombre, numIdentificacion, numTelefono, correo, contraseña, venta, alaquiler));
+        transacciones.add(new Tansaccion(valor, fecha, tipoTransacciones, empleado, propiedad, cliente, propietario));
     }
 
 
     public List<Empleado> getEmpleados() {
-        return empleados;
+
+        return Collections.EMPTY_LIST;
     }
 
     public List<Propiedad> getPropiedades() {

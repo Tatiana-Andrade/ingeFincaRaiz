@@ -6,42 +6,59 @@ import java.util.List;
 import static modelo.TipoTransaccion.ALQUILER;
 import static modelo.TipoTransaccion.VENTA;
 
-public class Tansaccion extends Empleado {
+public class Tansaccion {
 
 
-    private int venta;
+    private final int valor;
 
-    private int alquiler;
-    private Date fecha;
+    private final Date fecha;
 
-    private List<TipoTransaccion> tipoTransacciones;
+    private final TipoTransaccion tipoTransacciones;
 
+    private final Empleado empleado;
 
-    public Tansaccion(String nombre, String numIdentificacion, String numTelefono, String correo, String contraseña, int venta, int alquiler) {
-        super(nombre, numIdentificacion, numTelefono, correo, contraseña);
+    private final Propiedad propiedad;
 
+    private final Cliente cliente;
+
+    private final Propietario propietario;
+
+    public Tansaccion(int valor, Date fecha, TipoTransaccion tipoTransacciones, Empleado empleado, Propiedad propiedad,
+                      Cliente cliente, Propietario propietario) {
+        this.valor = valor;
         this.fecha = fecha;
         this.tipoTransacciones = tipoTransacciones;
-        this.venta = venta;
-        this.alquiler = alquiler;
-
+        this.empleado = empleado;
+        this.propiedad = propiedad;
+        this.cliente = cliente;
+        this.propietario = propietario;
     }
 
     public Date getFecha() {
         return fecha;
     }
 
-    public List<TipoTransaccion> getTipoTransacciones() {
+    public int getValor() {
+        return valor;
+    }
+
+    public TipoTransaccion getTipoTransacciones() {
         return tipoTransacciones;
     }
 
-    public int getVenta() {
-
-        return venta;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public int getAlquiler() {
+    public Propiedad getPropiedad() {
+        return propiedad;
+    }
 
-        return alquiler;
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
     }
 }
