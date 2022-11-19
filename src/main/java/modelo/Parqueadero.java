@@ -5,8 +5,8 @@ import java.util.List;
 public class Parqueadero extends Propiedad{
 
 
-    public  Parqueadero( String direccion, String area){
-        super(direccion, area);
+    public  Parqueadero( String direccion, String area, Ubicacion ubicaciones){
+        super(direccion, area, ubicaciones);
 
     }
 }

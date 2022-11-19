@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Apartamento extends Vivienda {
 
-    private String ubicacion;
+
     private boolean balcones;
     private boolean servicioAscensor;
     private String pisoUbicacion;
@@ -13,9 +13,9 @@ public class Apartamento extends Vivienda {
 
 
     public Apartamento( String direccion, String area, String numeroBaños, String numeroCuartos,boolean balcones, boolean servicioAscensor,
-                        String pisoUbicacion,String valorAdministracion,String numeroParqueaderos, String ubicacion){
+                        String pisoUbicacion,String valorAdministracion,String numeroParqueaderos,Ubicacion ubicaciones){
 
-        super(direccion, area, numeroBaños,numeroCuartos);
+        super(direccion, area, numeroBaños,numeroCuartos, ubicaciones);
 
 
         this.balcones= balcones;
@@ -23,7 +23,7 @@ public class Apartamento extends Vivienda {
         this.pisoUbicacion=pisoUbicacion;
         this.valorAdministracion=valorAdministracion;
         this.numeroParqueaderos=numeroParqueaderos;
-        this.ubicacion=ubicacion;
+
 
     }
     public boolean isBalcones() {
@@ -47,8 +47,5 @@ public class Apartamento extends Vivienda {
         return numeroParqueaderos;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
-    }
 }
 

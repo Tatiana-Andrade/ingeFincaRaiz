@@ -5,20 +5,15 @@ import java.util.List;
 public class Bodega extends Propiedad {
 
 
-    private String ubicacion;
 
 
-    public Bodega ( String direccion, String area, String ubicacion){
-        super(direccion, area);
+    public Bodega ( String direccion, String area, Ubicacion ubicaciones){
+        super(direccion, area, ubicaciones);
 
 
-        this.ubicacion=ubicacion;
 
 
     }
 
-    public String getUbicacion() {
-        return ubicacion;
-    }
 }
 
