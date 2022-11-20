@@ -15,9 +15,9 @@ public class Chalet extends Casa{
 
     public Chalet(String direccion, String area, String numeroBaños, String numeroCuartos,String ubicacion,boolean aguaPotable,
                   boolean servicioAlcantarillado, boolean pozoSeptico, boolean internet, boolean energiaElectrica,
-                  boolean gasDomiciliario, Ubicacion ubicaciones){
+                  boolean gasDomiciliario, Ubicacion zona){
 
-        super(direccion, area, numeroBaños, numeroCuartos,ubicaciones);
+        super(direccion, area, numeroBaños, numeroCuartos,zona);
 
 
         this.aguaPotable=aguaPotable;
