@@ -13,6 +13,8 @@ public class Propiedad {
         this.area = area;
         this.zona = zona;
 
+
+
     }
 
 
