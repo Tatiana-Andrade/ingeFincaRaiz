@@ -9,9 +9,9 @@ public class Casa extends Vivienda {
     private String materialConstruccion;
 
 
-    public Casa ( String direccion, String area, String numeroBaños, String numeroCuartos, Ubicacion ubicaciones){
+    public Casa ( String direccion, String area, String numeroBaños, String numeroCuartos, Ubicacion zona){
 
-        super(direccion, area, numeroBaños, numeroCuartos, ubicaciones);
+        super(direccion, area, numeroBaños, numeroCuartos, zona);
 
         this.numeroPisos=numeroPisos;
         this.materialConstruccion=materialConstruccion;

@@ -13,9 +13,9 @@ public class Apartamento extends Vivienda {
 
 
     public Apartamento( String direccion, String area, String numeroBaños, String numeroCuartos,boolean balcones, boolean servicioAscensor,
-                        String pisoUbicacion,String valorAdministracion,String numeroParqueaderos,Ubicacion ubicaciones){
+                        String pisoUbicacion,String valorAdministracion,String numeroParqueaderos,Ubicacion zona){
 
-        super(direccion, area, numeroBaños,numeroCuartos, ubicaciones);
+        super(direccion, area, numeroBaños,numeroCuartos, zona);
 
 
         this.balcones= balcones;
