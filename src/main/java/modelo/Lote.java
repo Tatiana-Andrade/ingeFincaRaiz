@@ -6,8 +6,8 @@ public class Lote extends Propiedad{
 
 
 
-    public  Lote( String direccion, String area, Ubicacion zona){
-        super(direccion, area, zona);
+    public  Lote( String direccion, String area, Ubicacion ubicaciones){
+        super(direccion, area, ubicaciones);
 
 
 

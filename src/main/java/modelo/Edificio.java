@@ -8,9 +8,9 @@ public class Edificio extends Propiedad{
 
     private String numeroPisos;
 
-    public Edificio ( String direccion, String area, String numeroPisos, Ubicacion zona){
+    public Edificio ( String direccion, String area, String numeroPisos, Ubicacion ubicaciones){
 
-        super(direccion, area, zona);
+        super(direccion, area, ubicaciones);
 
         this.numeroPisos=numeroPisos;
 
